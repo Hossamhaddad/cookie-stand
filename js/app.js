@@ -29,13 +29,11 @@ var seattle={
 
 seattle.calculateCustomersPerHour();
 seattle.calculateCookiesPerHour();
-var sumOfCookies=0;
+var sumOfSeattleCookies=0;
 for(i=0;i<seattle.cookiesPerHour.length;i++){
-  sumOfCookies=sumOfCookies+seattle.cookiesPerHour[i];
+  sumOfSeattleCookies=sumOfSeattleCookies+seattle.cookiesPerHour[i];
 }
-seattle.cookiesPerHour.push(sumOfCookies);
-console.log(sumOfCookies);
-
+seattle.cookiesPerHour.push(sumOfSeattleCookies);
 var seattleWorkingHours=document.createElement('ul');
 
 for(var i=0;i<=workHours.length;i++){
@@ -50,8 +48,8 @@ for(var i=0;i<=workHours.length;i++){
 }
 var branchSeatlle=document.createElement('h2');
 branchSeatlle.textContent='Seatlle';
-document.getElementById('body-id').appendChild(branchSeatlle)
-document.getElementById('body-id').appendChild(seattleWorkingHours);
+document.getElementById('mainId').appendChild(branchSeatlle);
+document.getElementById('mainId').appendChild(seattleWorkingHours);
 console.log(seattleWorkingHours);
 
 var tokyo={
@@ -80,11 +78,11 @@ var tokyo={
 
 tokyo.calculateCustomersPerHour();
 tokyo.calculateCookiesPerHour();
-var sumOfCookies=0;
+var sumOfTokyoCookies=0;
 for(var i=0;i<tokyo.cookiesPerHour.length;i++){
-  sumOfCookies=sumOfCookies+tokyo.cookiesPerHour[i];
+  sumOfTokyoCookies=sumOfTokyoCookies+tokyo.cookiesPerHour[i];
 }
-tokyo.cookiesPerHour.push(sumOfCookies);
+tokyo.cookiesPerHour.push(sumOfTokyoCookies);
 var tokyoWorkingHours=document.createElement('ul');
 
 for(var i=0;i<=workHours.length;i++){
@@ -96,11 +94,11 @@ for(var i=0;i<=workHours.length;i++){
   }
   tokyoWorkingHours.appendChild(tokyoWorkList);
 
-};
+}
 var branchtokyo=document.createElement('h2');
 branchtokyo.textContent='Tokyo';
-document.getElementById('body-id').appendChild(branchtokyo)
-document.getElementById('body-id').appendChild(tokyoWorkingHours);
+document.getElementById('mainId').appendChild(branchtokyo)
+document.getElementById('mainId').appendChild(tokyoWorkingHours);
 console.log(tokyoWorkingHours);
 
 
@@ -129,11 +127,11 @@ var dubai={
 
 dubai.calculateCustomersPerHour();
 dubai.calculateCookiesPerHour();
-var sumOfCookies=0;
+var sumOfDubaiCookies=0;
 for(var i=0;i<dubai.cookiesPerHour.length;i++){
-  sumOfCookies=sumOfCookies+dubai.cookiesPerHour[i];
+  sumOfDubaiCookies=sumOfDubaiCookies+dubai.cookiesPerHour[i];
 }
-dubai.cookiesPerHour.push(sumOfCookies);
+dubai.cookiesPerHour.push(sumOfDubaiCookies);
 
 var dubaiWorkingHours=document.createElement('ul');
 
@@ -149,8 +147,8 @@ for(var i=0;i<=workHours.length;i++){
 }
 var branchdubai=document.createElement('h2');
 branchdubai.textContent='Dubai';
-document.getElementById('body-id').appendChild(branchdubai)
-document.getElementById('body-id').appendChild(dubaiWorkingHours);
+document.getElementById('mainId').appendChild(branchdubai)
+document.getElementById('mainId').appendChild(dubaiWorkingHours);
 console.log(dubaiWorkingHours);
 
 
@@ -181,11 +179,11 @@ var paris={
 
 paris.calculateCustomersPerHour();
 paris.calculateCookiesPerHour();
-var sumOfCookies=0;
+var sumOfParisCookies=0;
 for(i=0;i<paris.cookiesPerHour.length;i++){
-  sumOfCookies=sumOfCookies+paris.cookiesPerHour[i];
+  sumOfParisCookies=sumOfParisCookies+paris.cookiesPerHour[i];
 }
-paris.cookiesPerHour.push(sumOfCookies);
+paris.cookiesPerHour.push(sumOfParisCookies);
 var parisWorkingHours=document.createElement('ul');
 
 for(var i=0;i<=workHours.length;i++){
@@ -200,8 +198,8 @@ parisWorkList.textContent=workHours[i]+":"+paris.cookiesPerHour[i]+' cookies';
 }
 var branchparis=document.createElement('h2');
 branchparis.textContent='Paris';
-document.getElementById('body-id').appendChild(branchparis)
-document.getElementById('body-id').appendChild(parisWorkingHours);
+document.getElementById('mainId').appendChild(branchparis)
+document.getElementById('mainId').appendChild(parisWorkingHours);
 console.log(parisWorkingHours);
 
 
@@ -212,7 +210,7 @@ var lima={
   avgCookiesPerHour:4.6,
   customerPerHour:[],
   calculateCustomersPerHour : function(){
-    var customer;   
+    var customer;
     for(var i=0;i<workHours.length;i++){
       customer=randomNum(this.minCustomerPerHour,this.maxCustomerPerHour);  
       this.customerPerHour[i]=customer;
@@ -232,11 +230,11 @@ var lima={
 
 lima.calculateCustomersPerHour();
 lima.calculateCookiesPerHour();
-var sumOfCookies=0;
+var sumOfLimaCookies=0;
 for(var i=0;i<lima.cookiesPerHour.length;i++){
-  sumOfCookies=sumOfCookies+lima.cookiesPerHour[i];
+  sumOfLimaCookies=sumOfLimaCookies+lima.cookiesPerHour[i];
 }
-lima.cookiesPerHour.push(sumOfCookies);
+lima.cookiesPerHour.push(sumOfLimaCookies);
 var limaWorkingHours=document.createElement('ul');
 
 for(var i=0;i<=workHours.length;i++){
@@ -251,8 +249,8 @@ for(var i=0;i<=workHours.length;i++){
 }
 var branchlima=document.createElement('h2');
 branchlima.textContent='Lima';
-document.getElementById('body-id').appendChild(branchlima)
-document.getElementById('body-id').appendChild(limaWorkingHours);
+document.getElementById('mainId').appendChild(branchlima)
+document.getElementById('mainId').appendChild(limaWorkingHours);
 console.log(limaWorkingHours);
 
 

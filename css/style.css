@@ -1,0 +1,26 @@
+.list-class{
+    margin-top: 0%;
+    display: inline block;
+   margin: 4px;
+   margin: 10px;
+   float: right;
+ 
+}
+header{
+    background-color: #d0efff;
+    padding:10px;
+    margin: 0px;
+  
+}
+body{
+    background-color: #2a9df4;
+}
+footer{
+    background-color: #187bcd;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0%;
+
+}
