@@ -38,7 +38,7 @@ var parentMain= document.getElementById('mainId');
 var branchesTable=document.createElement('table');
 var tableHead=document.createElement('thead');
 var firstColumn=document.createElement('th');
-firstColumn.textContent='';
+firstColumn.textContent='City';
 tableHead.appendChild(firstColumn);
 tableHead.setAttribute('border',0);
 for(var i=0;i<workHours.length;i++){
@@ -47,11 +47,14 @@ for(var i=0;i<workHours.length;i++){
   tableHead.appendChild(Column);
 }
 var lastColumn=document.createElement('th');
-lastColumn.setAttribute('border',0);
-lastColumn.textContent="Daily Location Total";
+lastColumn.textContent='Daily Location Total';
 tableHead.appendChild(lastColumn);
 branchesTable.setAttribute('border',3);
 branchesTable.appendChild(tableHead);
+
+
+
+
 Branches.prototype.render=function(){
   var firstRow=document.createElement('tr');
   branchesTable.appendChild(firstRow);
@@ -69,7 +72,7 @@ Branches.prototype.render=function(){
   }
   parentMain.appendChild(branchesTable);
 };
-var seattle= new Branches('Seattle',23,65,6.3);
+    var seattle= new Branches('Seattle',23,65,6.3);
 seattle.calculateCustomersPerHour();
 seattle.calculateCookiesPerHour();
 seattle.calculatesumOfCookies();
@@ -95,3 +98,20 @@ lima.calculateCustomersPerHour();
 lima.calculateCookiesPerHour();
 lima.calculatesumOfCookies();
 lima.render();
+
+var lastRow=document.createElement('tr');
+var lastRow1stCol=document.createElement('td');
+lastRow1stCol.textContent='total';
+lastRow.appendChild(lastRow1stCol);
+  for(var i =0;i<workHours.length;i++){
+   var lastRowColumns=document.createElement('td');
+   var sumOfAllBranches=seattle.cookiesPerHour[i]+tokyo.cookiesPerHour[i]+paris.cookiesPerHour[i]+dubai.cookiesPerHour[i]+lima.cookiesPerHour[i];
+      lastRowColumns.textContent=sumOfAllBranches;
+  
+      lastRow.appendChild(lastRowColumns);
+  }
+  var lastRowLastCol=document.createElement('td');
+  var totalCookies=seattle.sumOfCookies+tokyo.sumOfCookies+paris.sumOfCookies+dubai.sumOfCookies+lima.sumOfCookies;
+  lastRowLastCol.textContent=totalCookies;
+  lastRow.appendChild(lastRowLastCol);
+  branchesTable.appendChild(lastRow);
