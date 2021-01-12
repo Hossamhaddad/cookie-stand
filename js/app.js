@@ -32,7 +32,7 @@ Branches.prototype.calculatesumOfCookies= function(){
   this.sumOfCookies;
   for(var i=0;i<this.cookiesPerHour.length;i++){
     this.sumOfCookies=this.sumOfCookies+this.cookiesPerHour[i];
-  } 
+  }
 };
 var parentMain= document.getElementById('mainId');
 var branchesTable=document.createElement('table');
@@ -72,7 +72,7 @@ Branches.prototype.render=function(){
   }
   parentMain.appendChild(branchesTable);
 };
-    var seattle= new Branches('Seattle',23,65,6.3);
+var seattle= new Branches('Seattle',23,65,6.3);
 seattle.calculateCustomersPerHour();
 seattle.calculateCookiesPerHour();
 seattle.calculatesumOfCookies();
@@ -103,15 +103,14 @@ var lastRow=document.createElement('tr');
 var lastRow1stCol=document.createElement('td');
 lastRow1stCol.textContent='total';
 lastRow.appendChild(lastRow1stCol);
-  for(var i =0;i<workHours.length;i++){
-   var lastRowColumns=document.createElement('td');
-   var sumOfAllBranches=seattle.cookiesPerHour[i]+tokyo.cookiesPerHour[i]+paris.cookiesPerHour[i]+dubai.cookiesPerHour[i]+lima.cookiesPerHour[i];
-      lastRowColumns.textContent=sumOfAllBranches;
-  
-      lastRow.appendChild(lastRowColumns);
-  }
-  var lastRowLastCol=document.createElement('td');
-  var totalCookies=seattle.sumOfCookies+tokyo.sumOfCookies+paris.sumOfCookies+dubai.sumOfCookies+lima.sumOfCookies;
-  lastRowLastCol.textContent=totalCookies;
-  lastRow.appendChild(lastRowLastCol);
-  branchesTable.appendChild(lastRow);
+for(var i =0;i<workHours.length;i++){
+  var lastRowColumns=document.createElement('td');
+  var sumOfAllBranches=seattle.cookiesPerHour[i]+tokyo.cookiesPerHour[i]+paris.cookiesPerHour[i]+dubai.cookiesPerHour[i]+lima.cookiesPerHour[i];
+  lastRowColumns.textContent=sumOfAllBranches;
+  lastRow.appendChild(lastRowColumns);
+}
+var lastRowLastCol=document.createElement('td');
+var totalCookies=seattle.sumOfCookies+tokyo.sumOfCookies+paris.sumOfCookies+dubai.sumOfCookies+lima.sumOfCookies;
+lastRowLastCol.textContent=totalCookies;
+lastRow.appendChild(lastRowLastCol);
+branchesTable.appendChild(lastRow);
