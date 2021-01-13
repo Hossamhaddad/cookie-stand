@@ -4,6 +4,7 @@ var randomNum=function(min,max){
   var number= Math.floor(Math.random()*(max-min+1)+min);
   return(number);
 };
+var branch=[];
 function Branches(name,minCustomerPerHour,maxCustomerPerHour,avgCookiesPerHour){
   this.name=name;
   this.minCustomerPerHour=minCustomerPerHour;
@@ -12,6 +13,7 @@ function Branches(name,minCustomerPerHour,maxCustomerPerHour,avgCookiesPerHour){
   this.customerPerHour=[];
   this.cookiesPerHour=[];
   this.sumOfCookies=0;
+  branch.push(this);
 }
 
 Branches.prototype.calculateCustomersPerHour= function(){
@@ -52,12 +54,12 @@ tableHead.appendChild(lastColumn);
 branchesTable.setAttribute('border',3);
 branchesTable.appendChild(tableHead);
 
-
-
+var tableBody=document.createElement('tbody');
+branchesTable.appendChild(tableBody);
 
 Branches.prototype.render=function(){
   var firstRow=document.createElement('tr');
-  branchesTable.appendChild(firstRow);
+  tableBody.appendChild(firstRow);
   var thisBranchName=document.createElement('td');
   thisBranchName.textContent=this.name;
   firstRow.appendChild(thisBranchName);
@@ -99,18 +101,50 @@ lima.calculateCookiesPerHour();
 lima.calculatesumOfCookies();
 lima.render();
 
+function total(){
+  var tableFooter=document.createElement('tfoot');
+  branchesTable.deleteTFoot();
+  branchesTable.appendChild(tableFooter);
 var lastRow=document.createElement('tr');
 var lastRow1stCol=document.createElement('td');
 lastRow1stCol.textContent='total';
 lastRow.appendChild(lastRow1stCol);
-for(var i =0;i<workHours.length;i++){
-  var lastRowColumns=document.createElement('td');
-  var sumOfAllBranches=seattle.cookiesPerHour[i]+tokyo.cookiesPerHour[i]+paris.cookiesPerHour[i]+dubai.cookiesPerHour[i]+lima.cookiesPerHour[i];
-  lastRowColumns.textContent=sumOfAllBranches;
-  lastRow.appendChild(lastRowColumns);
+  for(var i =0;i<workHours.length;i++){
+    var lastRowColumns=document.createElement('td');
+
+    var sumOfAllBranches=0;
+    for(var j=0;j<branch.length;j++){
+      sumOfAllBranches+=parseInt(branch[j].cookiesPerHour[i]);
 }
-var lastRowLastCol=document.createElement('td');
-var totalCookies=seattle.sumOfCookies+tokyo.sumOfCookies+paris.sumOfCookies+dubai.sumOfCookies+lima.sumOfCookies;
-lastRowLastCol.textContent=totalCookies;
-lastRow.appendChild(lastRowLastCol);
-branchesTable.appendChild(lastRow);
+
+    lastRowColumns.textContent=sumOfAllBranches;
+    lastRow.appendChild(lastRowColumns);
+}
+
+  var lastRowLastCol=document.createElement('td');
+  var AllBranches=0;
+  for(var j=0;j<branch.length;j++){
+    AllBranches +=parseInt(branch[j].sumOfCookies);
+  }
+  lastRowLastCol.textContent=AllBranches;
+  lastRow.appendChild(lastRowLastCol);
+  tableFooter.appendChild(lastRow);
+  branchesTable.appendChild(tableFooter);
+}
+
+var branchform=document.getElementById('branchform');
+branchform.addEventListener('submit',submitter);
+function submitter (event){
+  event.preventDefault();
+  var name=event.target.nameField.value;
+  var minCustomerPerHour=event.target.minCustomerPerHour.value;
+  var maxCustomerPerHour=event.target.maxCustomerPerHour.value;
+  var avgCookiesPerHour=event.target.avgCookiesPerHour.value;
+  var newbranch= new Branches(name,minCustomerPerHour,maxCustomerPerHour,avgCookiesPerHour)
+  newbranch.calculateCustomersPerHour();
+  newbranch.calculateCookiesPerHour();
+  newbranch.calculatesumOfCookies();
+  newbranch.render();
+  total();
+}
+total();
