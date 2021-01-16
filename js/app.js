@@ -4,6 +4,7 @@ var randomNum=function(min,max){
   var number= Math.floor(Math.random()*(max-min+1)+min);
   return(number);
 };
+
 var branch=[];
 function Branches(name,minCustomerPerHour,maxCustomerPerHour,avgCookiesPerHour){
   this.name=name;
@@ -51,7 +52,7 @@ for(var i=0;i<workHours.length;i++){
 var lastColumn=document.createElement('th');
 lastColumn.textContent='Daily Location Total';
 tableHead.appendChild(lastColumn);
-branchesTable.setAttribute('border',3);
+branchesTable.setAttribute('border',2);
 branchesTable.appendChild(tableHead);
 
 var tableBody=document.createElement('tbody');
@@ -105,10 +106,10 @@ function total(){
   var tableFooter=document.createElement('tfoot');
   branchesTable.deleteTFoot();
   branchesTable.appendChild(tableFooter);
-var lastRow=document.createElement('tr');
-var lastRow1stCol=document.createElement('td');
-lastRow1stCol.textContent='total';
-lastRow.appendChild(lastRow1stCol);
+  var lastRow=document.createElement('tr');
+  var lastRow1stCol=document.createElement('td');
+  lastRow1stCol.textContent='total';
+  lastRow.appendChild(lastRow1stCol);
   for(var i =0;i<workHours.length;i++){
     var lastRowColumns=document.createElement('td');
 
@@ -116,6 +117,7 @@ lastRow.appendChild(lastRow1stCol);
     for(var j=0;j<branch.length;j++){
       sumOfAllBranches+=parseInt(branch[j].cookiesPerHour[i]);
 }
+
 
     lastRowColumns.textContent=sumOfAllBranches;
     lastRow.appendChild(lastRowColumns);
@@ -140,7 +142,7 @@ function submitter (event){
   var minCustomerPerHour=event.target.minCustomerPerHour.value;
   var maxCustomerPerHour=event.target.maxCustomerPerHour.value;
   var avgCookiesPerHour=event.target.avgCookiesPerHour.value;
-  var newbranch= new Branches(name,minCustomerPerHour,maxCustomerPerHour,avgCookiesPerHour)
+  var newbranch= new Branches(name,minCustomerPerHour,maxCustomerPerHour,avgCookiesPerHour);
   newbranch.calculateCustomersPerHour();
   newbranch.calculateCookiesPerHour();
   newbranch.calculatesumOfCookies();
@@ -148,3 +150,5 @@ function submitter (event){
   total();
 }
 total();
+
+
