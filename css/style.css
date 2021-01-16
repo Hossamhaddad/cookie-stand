@@ -1,6 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Farsan&display=swap');
+
+
 body{
     margin: 0px;
     height: 100%;
+    background-color: whitesmoke;
 }
 .list-class{
     margin-top: 0%;
@@ -27,7 +34,7 @@ footer{
     background-color:#d0efff;
     padding: 0px;
     width: 100%;
-    height: 40px;
+    height: 45px;
     text-align: center;
    
 
@@ -87,3 +94,61 @@ footer{
 #limaList{
     display: inline-block;
 }
+td{
+    background-color: cornflowerblue;
+    height: 30px;
+
+}
+    
+table{
+        border-collapse: collapse;
+        margin-left: 25%;
+        margin-top: 20px;
+     }
+    thead{
+        color: brown;
+    }
+    tr{
+        height: 30px;
+    }
+    tfoot{
+        height: 30px;
+    }
+    thead{
+        height: 30px;
+    }
+    th{
+        height: 30px;
+        width: 40px;
+    }
+    h2{
+      text-align: center;
+      text-decoration: darkslateblue;
+      font-family: 'Abril Fatface', cursive;
+    }
+    h1{
+        font-family: 'Abril Fatface', cursive;
+    }
+    p{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .seattle-list{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .tokyo-list{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .dubai-list{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .lima-list{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .paris-list{
+        font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    h3{
+        font-family: 'Farsan', cursive;
+     color: floralwhite;
+    }
+ 
